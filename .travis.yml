@@ -3,7 +3,7 @@ language: python
 
 env:
   global:
-  - DOCKER_IMAGE=alectolytic/rpmbuilder
+  - DOCKER_IMAGE=getpagespeed/rpmbuilder
   - OS_ARCH=x86_64
   matrix:
   - OS_TYPE=centos OS_DIST=epel OS_VERSION=7

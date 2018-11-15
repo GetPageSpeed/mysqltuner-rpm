@@ -1,6 +1,6 @@
 Name:           mysqltuner
-Version:        1.7.2
-Release:        1%{?dist}
+Version:        1.7.13
+Release:        1%{?dist}.gps
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -10,6 +10,7 @@ Source0:        https://github.com/major/MySQLTuner-perl/archive/%{version}.tar.
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
+BuildRequires:  perl-generators
 Requires:       mysql
 Requires:       which
 
@@ -37,7 +38,6 @@ install -Dpm 644 vulnerabilities.csv $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/v
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
 %files
 %defattr(-,root,root,-)
 %doc LICENSE README.md
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Nov 15 2018 Danila Vershinin <info@getpagespeed.com> - 1.7.13-1
+- New upstream version
+
 * Sun Feb 18 2018 Danila Vershinin <info@getpagespeed.com> - 1.7.2-1
 - New upstream version
 - Packed basic passwords and vulnerabilities data files
