@@ -1,12 +1,13 @@
 Name:           mysqltuner
 Version:        1.7.13
-Release:        1%{?dist}.gps
+Release:        2%{?dist}.gps
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
 License:        GPLv3+
 URL:            http://mysqltuner.com/
 Source0:        https://github.com/major/MySQLTuner-perl/archive/%{version}.tar.gz
+Source1:        mysqlmemory.sh
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -31,6 +32,7 @@ MySQL installation and the areas where it can be improved.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -Dpm 755 mysqltuner.pl $RPM_BUILD_ROOT%{_bindir}/mysqltuner
+install -Dpm 755 %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/mysqlmemory
 install -d -m 755 -v $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner
 install -Dpm 644 basic_passwords.txt $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/basic_passwords.txt
 install -Dpm 644 vulnerabilities.csv $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/vulnerabilities.csv
