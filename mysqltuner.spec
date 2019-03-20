@@ -44,6 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc LICENSE README.md
 %{_bindir}/mysqltuner
+%{_bindir}/mysqlmemory
 %{_datarootdir}/mysqltuner/*
 
 
