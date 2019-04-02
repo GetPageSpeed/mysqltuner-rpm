@@ -1,6 +1,6 @@
 Name:           mysqltuner
 Version:        1.7.13
-Release:        3%{?dist}.gps
+Release:        4%{?dist}.gps
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -47,7 +47,7 @@ install -d -m 755 -v $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner
 install -Dpm 644 basic_passwords.txt $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/basic_passwords.txt
 install -Dpm 644 vulnerabilities.csv $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/vulnerabilities.csv
 
-install -D -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
+install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Tue Apr 2 2019 Danila Vershinin <info@getpagespeed.com> - 1.7.13-3
+* Tue Apr 2 2019 Danila Vershinin <info@getpagespeed.com> - 1.7.13-4
 - added cron subpackage for weekly reports
 
 * Thu Nov 15 2018 Danila Vershinin <info@getpagespeed.com> - 1.7.13-1
