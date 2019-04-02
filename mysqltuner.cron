@@ -1,0 +1,13 @@
+#!/bin/bash
+
+RES=$(/usr/bin/mysqltuner --json)
+
+if [[ $(echo $RES | jq '.Recommendations | length') -gt "0" ]]; then
+  echo "There are recommendations for MySQL:"
+  echo $RES | jq '.Recommendations'
+fi
+
+if [[ $(echo $RES | jq '."Adjust variables" | length') -gt "0" ]]; then
+  echo "There are recommendations for MySQL variables:"
+  echo $RES | jq '."Adjust variables"'
+fi

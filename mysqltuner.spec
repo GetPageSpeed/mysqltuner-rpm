@@ -1,6 +1,6 @@
 Name:           mysqltuner
 Version:        1.7.13
-Release:        2%{?dist}.gps
+Release:        3%{?dist}.gps
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -8,6 +8,7 @@ License:        GPLv3+
 URL:            http://mysqltuner.com/
 Source0:        https://github.com/major/MySQLTuner-perl/archive/%{version}.tar.gz
 Source1:        mysqlmemory.sh
+Source2:        mysqltuner.cron
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -21,6 +22,15 @@ MySQL configuration and make recommendations for increased performance
 and stability.  Within seconds, it will display statistics about your
 MySQL installation and the areas where it can be improved.
 
+%package cron
+Summary:        Cron job to do weekly reports with MySQLTuner
+BuildArch:      noarch
+Requires:       %{name} = %{version}-%{release}
+Requires:       crontabs
+Requires:       jq
+
+%description cron
+Cron job for weekly suggestions of MySQL tuning.
 
 %prep
 %setup -q -n MySQLTuner-perl-%{version}
@@ -37,6 +47,8 @@ install -d -m 755 -v $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner
 install -Dpm 644 basic_passwords.txt $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/basic_passwords.txt
 install -Dpm 644 vulnerabilities.csv $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/vulnerabilities.csv
 
+install -D -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -47,8 +59,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/mysqlmemory
 %{_datarootdir}/mysqltuner/*
 
+%files cron
+%config(noreplace) %{_sysconfdir}/cron.weekly/%{name}
+
 
 %changelog
+* Tue Apr 2 2019 Danila Vershinin <info@getpagespeed.com> - 1.7.13-3
+- added cron subpackage for weekly reports
+
 * Thu Nov 15 2018 Danila Vershinin <info@getpagespeed.com> - 1.7.13-1
 - New upstream version
 
