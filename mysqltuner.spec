@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datarootdir}/mysqltuner/*
 
 %files cron
-%config(noreplace) %{_sysconfdir}/cron.weekly/%{name}
+%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
