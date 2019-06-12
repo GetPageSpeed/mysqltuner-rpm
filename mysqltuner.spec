@@ -1,6 +1,6 @@
 Name:           mysqltuner
-Version:        1.7.13
-Release:        4%{?dist}.gps
+Version: 1.7.15
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -64,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jun 12 2019 Danila Vershinin <info@getpagespeed.com> 1.7.15-1
+- upstream version auto-updated to 1.7.15
+
 * Tue Apr 2 2019 Danila Vershinin <info@getpagespeed.com> - 1.7.13-4
 - added cron subpackage for weekly reports
 
