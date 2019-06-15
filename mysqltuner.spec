@@ -1,6 +1,6 @@
 Name:           mysqltuner
-Version: 1.7.15
-Release: 1%{?dist}
+Version:        1.7.15
+Release:        2%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -34,7 +34,8 @@ Cron job for weekly suggestions of MySQL tuning.
 
 %prep
 %setup -q -n MySQLTuner-perl-%{version}
-
+# fix line encodings in README
+sed -i 's/\r$//' README.md
 
 %build
 
@@ -64,8 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Wed Jun 12 2019 Danila Vershinin <info@getpagespeed.com> 1.7.15-1
+* Wed Jun 12 2019 Danila Vershinin <info@getpagespeed.com> 1.7.15-2
 - upstream version auto-updated to 1.7.15
+- fix README.md
 
 * Tue Apr 2 2019 Danila Vershinin <info@getpagespeed.com> - 1.7.13-4
 - added cron subpackage for weekly reports
