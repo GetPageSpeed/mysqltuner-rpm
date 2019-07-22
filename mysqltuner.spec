@@ -1,6 +1,6 @@
 Name:           mysqltuner
 Version:        1.7.15
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -13,6 +13,14 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
 BuildRequires:  perl-generators
+# perl-generators won't find modules  defined at 'eval'
+# and mysqltuner has some:
+Requires:       perl(JSON)
+Requires:       perl(Text::Template)
+# generates man page in build step
+BuildRequires:  pandoc
+
+# this is dependency for client program only
 Requires:       mysql
 Requires:       which
 
@@ -36,9 +44,18 @@ Cron job for weekly suggestions of MySQL tuning.
 %setup -q -n MySQLTuner-perl-%{version}
 # fix line encodings in README
 sed -i 's/\r$//' README.md
+# add info section to USAGE.md so it can be nicely converted to man page
+sed -i '1i% mysqltuner(1)\n% Major Hayden - major@mhtx.net\n% July 2019\n\n' \
+  USAGE.md
+# fix-up E: wrong-script-interpreter in EL8
+sed -i 's@/usr/bin/env perl@%{_bindir}/perl@' %{name}.pl
+
+
 
 %build
-
+# generates man page
+pandoc -s -t man USAGE.md -o %{name}.1
+# nothins else to do
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -50,21 +67,34 @@ install -Dpm 644 vulnerabilities.csv $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/v
 
 install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
+%{__install} -Dpm0644 %{name}.1 \
+    $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
+
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc LICENSE README.md
+# Virtually add license macro for EL6:
+%{!?_licensedir:%global license %%doc}
+%license LICENSE
+%doc README.md
 %{_bindir}/mysqltuner
 %{_bindir}/mysqlmemory
 %{_datarootdir}/mysqltuner/*
+%{_mandir}/man1/*.1*
+
 
 %files cron
 %{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Mon Jul 22 2019 Danila Vershinin <info@getpagespeed.com> 1.7.15-3
+- added dependency on couple of perl modules not detected by perl-generators
+- generate man page from USAGE.md
+
 * Wed Jun 12 2019 Danila Vershinin <info@getpagespeed.com> 1.7.15-2
 - upstream version auto-updated to 1.7.15
 - fix README.md
