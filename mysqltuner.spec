@@ -1,6 +1,6 @@
 Name:           mysqltuner
-Version:        1.7.15
-Release:        3%{?dist}
+Version:        1.7.17
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Oct 02 2019 Danila Vershinin <info@getpagespeed.com> 1.7.17-1
+- upstream version auto-updated to 1.7.17
+
 * Mon Jul 22 2019 Danila Vershinin <info@getpagespeed.com> 1.7.15-3
 - added dependency on couple of perl modules not detected by perl-generators
 - generate man page from USAGE.md
