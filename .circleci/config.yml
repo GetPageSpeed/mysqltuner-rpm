@@ -23,6 +23,11 @@ jobs: # a collection of steps
       - image: getpagespeed/rpmbuilder:centos-7
     working_directory: /sources # directory where steps will run
     <<: *defaults
+  el8:
+    docker:
+      - image: getpagespeed/rpmbuilder:centos-8
+    working_directory: /sources # directory where steps will run
+    <<: *defaults
   deploy:
     docker:
       - image: kroniak/ssh-client
@@ -48,11 +53,13 @@ workflows:
     jobs:
       - el6
       - el7
+      - el8
       - deploy:
           context: org-global
           requires:
             - el6
             - el7
+            - el8
           filters:
             branches:
               only: master
