@@ -18,7 +18,9 @@ BuildRequires:  perl-generators
 Requires:       perl(JSON)
 Requires:       perl(Text::Template)
 # generates man page in build step
+%if 0%{?rhel} <= 7
 BuildRequires:  pandoc
+%endif
 
 # this is dependency for client program only
 Requires:       mysql
@@ -54,7 +56,9 @@ sed -i 's@/usr/bin/env perl@%{_bindir}/perl@' %{name}.pl
 
 %build
 # generates man page
+%if 0%{?rhel} <= 7
 pandoc -s -t man USAGE.md -o %{name}.1
+%endif
 # nothins else to do
 
 %install
@@ -67,9 +71,10 @@ install -Dpm 644 vulnerabilities.csv $RPM_BUILD_ROOT%{_datarootdir}/mysqltuner/v
 
 install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
+%if 0%{?rhel} <= 7
 %{__install} -Dpm0644 %{name}.1 \
     $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
-
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +88,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/mysqltuner
 %{_bindir}/mysqlmemory
 %{_datarootdir}/mysqltuner/*
+%if 0%{?rhel} <= 7
 %{_mandir}/man1/*.1*
+%endif
 
 
 %files cron
