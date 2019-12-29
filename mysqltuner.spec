@@ -85,8 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
 %doc README.md
-%{_bindir}/mysqltuner
-%{_bindir}/mysqlmemory
+%{_bindir}/*
 %{_datarootdir}/mysqltuner/*
 %if 0%{?rhel} <= 7
 %{_mandir}/man1/*.1*
