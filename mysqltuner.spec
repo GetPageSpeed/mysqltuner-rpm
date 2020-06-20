@@ -1,6 +1,8 @@
 Name:           mysqltuner
 Version:        1.7.17
-Release: 1%{?dist}
+# Fuck you, EPEL
+Epoch:          1
+Release: 2%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
