@@ -1,8 +1,8 @@
 Name:           mysqltuner
 Version:        1.7.17
-# Fuck you, EPEL
+# F* you, EPEL
 Epoch:          1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -37,7 +37,7 @@ MySQL installation and the areas where it can be improved.
 %package cron
 Summary:        Cron job to do weekly reports with MySQLTuner
 BuildArch:      noarch
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name} =  %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:       crontabs
 Requires:       jq
 
