@@ -2,12 +2,12 @@ Name:           mysqltuner
 Version:        1.7.17
 # F* you, EPEL
 Epoch:          1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
 License:        GPLv3+
-URL:            http://mysqltuner.com/
+URL:            https://github.com/major/MySQLTuner-perl
 Source0:        https://github.com/major/MySQLTuner-perl/archive/%{version}.tar.gz
 Source1:        mysqlmemory.sh
 Source2:        mysqltuner.cron
