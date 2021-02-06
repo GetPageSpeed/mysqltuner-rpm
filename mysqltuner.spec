@@ -1,8 +1,8 @@
 Name:           mysqltuner
-Version:        1.7.17
+Version:        1.7.21
 # F* you, EPEL
 Epoch:          1
-Release: 4%{?dist}
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Feb 06 2021 Danila Vershinin <info@getpagespeed.com> 1.7.21-1
+- release 1.7.21
+
 * Wed Oct 02 2019 Danila Vershinin <info@getpagespeed.com> 1.7.17-1
 - upstream version auto-updated to 1.7.17
 
