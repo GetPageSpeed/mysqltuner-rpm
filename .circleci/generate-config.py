@@ -4,7 +4,10 @@
 import lastversion
 import yaml
 # fetch matrix.yml from GetPageSpeed?
+import os
 
+abspath = os.path.abspath(__file__)
+os.chdir(os.path.dirname(abspath))
 with open("matrix.yml", 'r') as f:
     try:
         distros_config = yaml.safe_load(f)
