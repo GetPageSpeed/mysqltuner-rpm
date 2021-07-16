@@ -18,6 +18,7 @@ jobs:
           command: |
             uname -a
             cat /etc/*release
+            pip install lastversion
             .circleci/generate-config.py > generated_config.yml
       - continuation/continue:
           configuration_path: generated_config.yml # use newly generated config to continue
