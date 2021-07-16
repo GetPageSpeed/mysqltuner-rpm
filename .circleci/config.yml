@@ -16,10 +16,6 @@ jobs:
       - run: # run a command
           name: Generate config
           command: |
-            # sudo apt update
-            # sudo apt -y install python3-pip
-            # sudo pip3 install lastversion
-            # .circleci/generate-config.py
             curl "https://raw.githubusercontent.com/GetPageSpeed/buildstrap/main/generated_config.yml" -o .circleci/generated_config.yml
             cat .circleci/generated_config.yml
       - continuation/continue:
