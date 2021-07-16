@@ -18,8 +18,8 @@ jobs:
           command: |
             uname -a
             cat /etc/*release
-            apt -y install python3-pip
-            pip3 install lastversion
+            sudo apt -y install python3-pip
+            sudo pip3 install lastversion
             .circleci/generate-config.py > generated_config.yml
       - continuation/continue:
           configuration_path: generated_config.yml # use newly generated config to continue
