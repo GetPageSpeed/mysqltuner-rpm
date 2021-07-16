@@ -1,0 +1,8 @@
+---
+
+distros:
+  centos:
+    alias: el
+  fedora: {}
+
+
