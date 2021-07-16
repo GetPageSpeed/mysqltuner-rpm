@@ -3,6 +3,8 @@
 distros:
   rhel:
     alias: el
-  fedora: {}
+    docker-tag-base: centos
+  fedora:
+    docker-tag-base: fedora
 
 

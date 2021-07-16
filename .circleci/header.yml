@@ -1,6 +1,6 @@
 version: 2
 
-defaults: &defaults
+defaults:
     working_directory: /sources # directory where steps will run
     environment:
       RPMLINT: 1
@@ -13,7 +13,7 @@ defaults: &defaults
           root: /output
           paths:
             - "*.rpm"
-deploy: &deploy
+deploy:
   docker:
     - image: kroniak/ssh-client
   working_directory: /output
