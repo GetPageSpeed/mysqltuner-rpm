@@ -26,7 +26,7 @@ for distro in distros:
 print(distros)
 
 # build up final yml based on header.yml and set up jobs: and workflows:
-config = {'jobs': {}}
+config = {'jobs': {}, 'workflows': {'all': {'jobs': ['el6']}}}
 
 with open('header.yml') as f:
     header_config = yaml.safe_load(f)
