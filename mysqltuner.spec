@@ -8,7 +8,7 @@ Summary:        MySQL configuration assistant
 Group:          Applications/Databases
 License:        GPLv3+
 URL:            https://github.com/major/MySQLTuner-perl
-Source0:        https://github.com/major/MySQLTuner-perl/archive/%{version}.tar.gz
+Source0:        https://github.com/major/MySQLTuner-perl/archive/refs/tags/v%{version}.tar.gz
 Source1:        mysqlmemory.sh
 Source2:        mysqltuner.cron
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
