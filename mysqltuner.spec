@@ -78,8 +78,6 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
     $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 %endif
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
