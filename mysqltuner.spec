@@ -1,5 +1,5 @@
 Name:           mysqltuner
-Version:        1.8.3
+Version:        1.9.9
 # F* you, EPEL
 Epoch:          1
 Release: 1%{?dist}
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Jun 16 2022 Danila Vershinin <info@getpagespeed.com> 1.9.9-1
+- release 1.9.9
+
 * Sat Oct 16 2021 Danila Vershinin <info@getpagespeed.com> 1.8.3-1
 - release 1.8.3
 
