@@ -1,5 +1,5 @@
 Name:           mysqltuner
-Version:        2.2.12
+Version:        2.5.2
 # F* you, EPEL
 Epoch:          1
 Release: 1%{?dist}
@@ -97,6 +97,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Wed Feb 07 2024 Danila Vershinin <info@getpagespeed.com> 2.5.2-1
+- release 2.5.2
+
 * Sun Sep 10 2023 Danila Vershinin <info@getpagespeed.com> 2.2.12-1
 - release 2.2.12
 
