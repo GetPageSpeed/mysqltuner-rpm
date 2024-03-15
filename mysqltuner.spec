@@ -2,7 +2,7 @@ Name:           mysqltuner
 Version:        2.5.2
 # F* you, EPEL
 Epoch:          1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -53,6 +53,10 @@ sed -i '1i% mysqltuner(1)\n% Major Hayden - major@mhtx.net\n% July 2019\n\n' \
   USAGE.md
 # fix-up E: wrong-script-interpreter in EL8
 sed -i 's@/usr/bin/env perl@%{_bindir}/perl@' %{name}.pl
+# Check if the first line of mysqltuner.pl starts with #! and add the shebang if not
+if ! grep -qE '^#!' %{name}.pl; then
+    sed -i '1i #!%{_bindir}/perl' %{name}.pl
+fi
 
 
 
@@ -61,7 +65,7 @@ sed -i 's@/usr/bin/env perl@%{_bindir}/perl@' %{name}.pl
 %if 0%{?rhel} && 0%{?rhel} <= 7
 pandoc -s -t man USAGE.md -o %{name}.1
 %endif
-# nothins else to do
+# nothing else to do
 
 %install
 rm -rf $RPM_BUILD_ROOT
