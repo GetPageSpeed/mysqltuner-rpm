@@ -1,8 +1,8 @@
 Name:           mysqltuner
-Version:        2.5.2
+Version:        2.6.0
 # F* you, EPEL
 Epoch:          1
-Release: 2%{?dist}
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -101,6 +101,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Wed Aug 07 2024 Danila Vershinin <info@getpagespeed.com> 2.6.0-1
+- release 2.6.0
+
 * Wed Feb 07 2024 Danila Vershinin <info@getpagespeed.com> 2.5.2-1
 - release 2.5.2
 
