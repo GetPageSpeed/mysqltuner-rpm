@@ -2,7 +2,7 @@ Name:           mysqltuner
 Version:        2.8.41
 # F* you, EPEL
 Epoch:          1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -14,7 +14,10 @@ Source2:        mysqltuner.cron
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
+# perl-generators is Fedora/RHEL-only; SUSE uses its own perl dep generator
+%if !0%{?suse_version}
 BuildRequires:  perl-generators
+%endif
 # perl-generators won't find modules  defined at 'eval'
 # and mysqltuner has some:
 Requires:       perl(JSON)
@@ -101,6 +104,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Mon May 18 2026 Danila Vershinin <info@getpagespeed.com> 2.8.41-2
+- gate perl-generators BuildRequires for non-SUSE (fix SLES 16 build)
+
 * Mon May 18 2026 Danila Vershinin <info@getpagespeed.com> 2.8.41-1
 - release 2.8.41
 
