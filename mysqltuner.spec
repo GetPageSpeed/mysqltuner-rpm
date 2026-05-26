@@ -1,8 +1,8 @@
 Name:           mysqltuner
-Version:        2.8.41
+Version:        2.8.42
 # F* you, EPEL
 Epoch:          1
-Release: 2%{?dist}
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -104,6 +104,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Tue May 26 2026 Danila Vershinin <info@getpagespeed.com> 2.8.42-1
+- release 2.8.42
+
 * Mon May 18 2026 Danila Vershinin <info@getpagespeed.com> 2.8.41-2
 - gate perl-generators BuildRequires for non-SUSE (fix SLES 16 build)
 
