@@ -1,5 +1,5 @@
 Name:           mysqltuner
-Version:        2.8.42
+Version:        2.8.43
 # F* you, EPEL
 Epoch:          1
 Release: 1%{?dist}
@@ -104,6 +104,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Thu May 28 2026 Danila Vershinin <info@getpagespeed.com> 2.8.43-1
+- release 2.8.43
+
 * Tue May 26 2026 Danila Vershinin <info@getpagespeed.com> 2.8.42-1
 - release 2.8.42
 
