@@ -1,14 +1,15 @@
 Name:           mysqltuner
 Version:        2.9.0
+%global spec_tag V%{version}
 # F* you, EPEL
 Epoch:          1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
 License:        GPLv3+
 URL:            https://github.com/major/MySQLTuner-perl
-Source0:        https://github.com/major/MySQLTuner-perl/archive/refs/tags/V%{version}.tar.gz
+Source0:        https://github.com/major/MySQLTuner-perl/archive/refs/tags/%{spec_tag}.tar.gz
 Source1:        mysqlmemory.sh
 Source2:        mysqltuner.cron
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -104,6 +105,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Mon Jul 06 2026 Danila Vershinin <info@getpagespeed.com> 2.9.0-3
+- use spec_tag macro so lastversion stamps the real tag on future bumps
+
 * Mon Jul 06 2026 Danila Vershinin <info@getpagespeed.com> 2.9.0-2
 - fix Source0 URL: upstream switched tag casing to V2.9.0 (capital V)
 
