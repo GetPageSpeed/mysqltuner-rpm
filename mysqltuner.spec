@@ -1,9 +1,9 @@
 Name:           mysqltuner
-Version:        2.9.0
+Version:        2.9.1
 %global spec_tag V%{version}
 # F* you, EPEL
 Epoch:          1
-Release: 3%{?dist}
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -105,6 +105,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Thu Jul 30 2026 Danila Vershinin <info@getpagespeed.com> 2.9.1-1
+- release 2.9.1
+
 * Mon Jul 06 2026 Danila Vershinin <info@getpagespeed.com> 2.9.0-3
 - use spec_tag macro so lastversion stamps the real tag on future bumps
 
