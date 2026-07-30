@@ -1,15 +1,16 @@
 Name:           mysqltuner
 Version:        2.9.1
-%global spec_tag V%{version}
+# check-new.sh stamps this from lastversion's spec_tag on every version bump
+%global gittag v%{version}
 # F* you, EPEL
 Epoch:          1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
 License:        GPLv3+
 URL:            https://github.com/major/MySQLTuner-perl
-Source0:        https://github.com/major/MySQLTuner-perl/archive/refs/tags/%{spec_tag}.tar.gz
+Source0:        https://github.com/major/MySQLTuner-perl/archive/refs/tags/%{gittag}.tar.gz
 Source1:        mysqlmemory.sh
 Source2:        mysqltuner.cron
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -105,6 +106,10 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Thu Jul 30 2026 Danila Vershinin <info@getpagespeed.com> 2.9.1-2
+- fix Source0 404: upstream tags are lowercase v, and rename the macro to
+  gittag, which check-new.sh actually stamps on each version bump
+
 * Thu Jul 30 2026 Danila Vershinin <info@getpagespeed.com> 2.9.1-1
 - release 2.9.1
 
