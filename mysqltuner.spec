@@ -1,10 +1,10 @@
 Name:           mysqltuner
-Version:        2.9.1
+Version:        2.9.2
 # check-new.sh stamps this from lastversion's spec_tag on every version bump
 %global gittag v%{version}
 # F* you, EPEL
 Epoch:          1
-Release: 2%{?dist}
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -106,6 +106,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Thu Aug 20 2026 Danila Vershinin <info@getpagespeed.com> 2.9.2-1
+- release 2.9.2
+
 * Thu Jul 30 2026 Danila Vershinin <info@getpagespeed.com> 2.9.1-2
 - fix Source0 404: upstream tags are lowercase v, and rename the macro to
   gittag, which check-new.sh actually stamps on each version bump
