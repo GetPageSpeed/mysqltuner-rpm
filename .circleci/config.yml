@@ -109,7 +109,7 @@ workflows:
     jobs:
     - build:
         name: build-el7-x86_64
-        context: org-global
+        context: build-deps
         dist: el7
         filters:
           branches:
@@ -120,7 +120,7 @@ workflows:
             - main
     - deploy:
         name: deploy-el7-x86_64
-        context: org-global
+        context: deploy
         dist: el7
         arch: x86_64
         filters:
@@ -136,7 +136,7 @@ workflows:
     jobs:
     - build:
         name: build-el8-x86_64
-        context: org-global
+        context: build-deps
         dist: el8
         filters:
           branches:
@@ -147,7 +147,7 @@ workflows:
             - main
     - deploy:
         name: deploy-el8-x86_64
-        context: org-global
+        context: deploy
         dist: el8
         arch: x86_64
         filters:
@@ -163,7 +163,7 @@ workflows:
     jobs:
     - build:
         name: build-el9-x86_64
-        context: org-global
+        context: build-deps
         dist: el9
         filters:
           branches:
@@ -174,7 +174,7 @@ workflows:
             - main
     - deploy:
         name: deploy-el9-x86_64
-        context: org-global
+        context: deploy
         dist: el9
         arch: x86_64
         filters:
@@ -190,7 +190,7 @@ workflows:
     jobs:
     - build:
         name: build-el10-x86_64
-        context: org-global
+        context: build-deps
         dist: el10
         filters:
           branches:
@@ -201,7 +201,7 @@ workflows:
             - main
     - deploy:
         name: deploy-el10-x86_64
-        context: org-global
+        context: deploy
         dist: el10
         arch: x86_64
         filters:
@@ -217,7 +217,7 @@ workflows:
     jobs:
     - build:
         name: build-fc44-x86_64
-        context: org-global
+        context: build-deps
         dist: fc44
         filters:
           branches:
@@ -228,7 +228,7 @@ workflows:
             - main
     - deploy:
         name: deploy-fc44-x86_64
-        context: org-global
+        context: deploy
         dist: fc44
         arch: x86_64
         filters:
@@ -244,7 +244,7 @@ workflows:
     jobs:
     - build:
         name: build-fc43-x86_64
-        context: org-global
+        context: build-deps
         dist: fc43
         filters:
           branches:
@@ -255,7 +255,7 @@ workflows:
             - main
     - deploy:
         name: deploy-fc43-x86_64
-        context: org-global
+        context: deploy
         dist: fc43
         arch: x86_64
         filters:
@@ -271,7 +271,7 @@ workflows:
     jobs:
     - build:
         name: build-amzn2-x86_64
-        context: org-global
+        context: build-deps
         dist: amzn2
         filters:
           branches:
@@ -282,7 +282,7 @@ workflows:
             - main
     - deploy:
         name: deploy-amzn2-x86_64
-        context: org-global
+        context: deploy
         dist: amzn2
         arch: x86_64
         filters:
@@ -298,7 +298,7 @@ workflows:
     jobs:
     - build:
         name: build-amzn2023-x86_64
-        context: org-global
+        context: build-deps
         dist: amzn2023
         filters:
           branches:
@@ -309,7 +309,7 @@ workflows:
             - main
     - deploy:
         name: deploy-amzn2023-x86_64
-        context: org-global
+        context: deploy
         dist: amzn2023
         arch: x86_64
         filters:
@@ -325,7 +325,7 @@ workflows:
     jobs:
     - build:
         name: build-sles16-x86_64
-        context: org-global
+        context: build-deps
         dist: sles16
         filters:
           branches:
@@ -336,7 +336,7 @@ workflows:
             - main
     - deploy:
         name: deploy-sles16-x86_64
-        context: org-global
+        context: deploy
         dist: sles16
         arch: x86_64
         filters:
