@@ -1,5 +1,5 @@
 Name:           mysqltuner
-Version:        2.9.2
+Version:        2.9.3
 # check-new.sh stamps this from lastversion's spec_tag on every version bump
 %global gittag v%{version}
 # F* you, EPEL
@@ -106,6 +106,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Thu Oct 22 2026 Danila Vershinin <info@getpagespeed.com> 2.9.3-1
+- release 2.9.3
+
 * Thu Aug 20 2026 Danila Vershinin <info@getpagespeed.com> 2.9.2-1
 - release 2.9.2
 
