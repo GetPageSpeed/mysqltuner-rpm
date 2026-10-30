@@ -4,7 +4,7 @@ Version:        2.9.3
 %global gittag v%{version}
 # F* you, EPEL
 Epoch:          1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -106,6 +106,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Fri Oct 30 2026 Danila Vershinin <info@getpagespeed.com> 2.9.3-2
+- cron: run with --skippassword so weekly reports stop logging root login failures
+
 * Thu Oct 22 2026 Danila Vershinin <info@getpagespeed.com> 2.9.3-1
 - release 2.9.3
 

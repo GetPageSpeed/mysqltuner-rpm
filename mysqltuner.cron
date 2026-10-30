@@ -1,6 +1,8 @@
 #!/bin/bash
 
-RES=$(/usr/bin/mysqltuner --json)
+# --skippassword: the weak-password check logs in as root with throwaway
+# passwords, leaving 3 "Access denied" warnings in the MySQL log every run.
+RES=$(/usr/bin/mysqltuner --json --skippassword)
 
 if [[ $(echo $RES | jq '.Recommendations | length') -gt "0" ]]; then
   echo "There are recommendations for MySQL:"
