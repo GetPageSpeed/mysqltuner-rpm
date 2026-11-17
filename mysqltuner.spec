@@ -1,10 +1,10 @@
 Name:           mysqltuner
-Version:        2.9.3
+Version:        2.9.4
 # check-new.sh stamps this from lastversion's spec_tag on every version bump
 %global gittag v%{version}
 # F* you, EPEL
 Epoch:          1
-Release: 2%{?dist}
+Release: 1%{?dist}
 Summary:        MySQL configuration assistant
 
 Group:          Applications/Databases
@@ -106,6 +106,9 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_sysconfdir}/cron.weekly/%{name}
 
 
 %changelog
+* Tue Nov 17 2026 Danila Vershinin <info@getpagespeed.com> 2.9.4-1
+- release 2.9.4
+
 * Fri Oct 30 2026 Danila Vershinin <info@getpagespeed.com> 2.9.3-2
 - cron: run with --skippassword so weekly reports stop logging root login failures
 
